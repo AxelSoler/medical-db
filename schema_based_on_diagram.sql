@@ -19,3 +19,11 @@ CREATE TABLE invoice_items (
     invoice_id integer,
     treatment_id integer
 );
+
+CREATE TABLE invoice (
+    id SERIAL PRIMARY KEY,
+    total_amount decimal,
+    generated_at timestamp,
+    payed_at timestamp,
+    medical_history_id integer
+);
