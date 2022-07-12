@@ -37,8 +37,16 @@ CREATE TABLE medical_histories (
 
 -- Modify medical_history table
 ALTER TABLE medical_histories
-ADD FOREIGN KEY (patient_id) REFERENCES patients(id);
+    ADD FOREIGN KEY(patient_id) REFERENCES patients(id);
 
 -- Modify treatments table
 ALTER TABLE treatments
-ADD FOREIGN KEY (id) REFERENCES medical_histories(id);
+    ADD FOREIGN KEY(id) REFERENCES medical_histories(id);
+
+-- Modify invoice_items table
+ALTER TABLE invoice_items
+    ADD FOREIGN KEY(invoice_id) REFERENCES invoice(id),
+    ADD FOREIGN KEY(treatment_id) REFERENCES treatments(id);
+
+ALTER TABLE invoice
+    ADD FOREIGN KEY(medical_history_id) REFERENCES medical_histories(id);
