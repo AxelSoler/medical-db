@@ -50,3 +50,12 @@ ALTER TABLE invoice_items
 
 ALTER TABLE invoice
     ADD FOREIGN KEY(medical_history_id) REFERENCES medical_histories(id);
+
+-- add the FK indexes
+
+CREATE INDEX index_medical_histories ON medical_histories (patient_id ASC);
+CREATE INDEX index_invoice_id ON invoice_items (invoice_id ASC);
+CREATE INDEX index_treatment_id ON invoice_items (treatment_id ASC);
+CREATE INDEX index_medical_id ON invoice (medical_history_id ASC);
+CREATE INDEX index_treatments ON treatments (id ASC);
+
