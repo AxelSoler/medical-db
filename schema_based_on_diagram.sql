@@ -35,3 +35,5 @@ CREATE TABLE medical_histories (
     status VARCHAR(255)
 );
 
+-- Modify medical_history table
+ADD FOREIGN KEY (patint_id) REFERENCES patients(id);
