@@ -27,3 +27,11 @@ CREATE TABLE invoice (
     payed_at timestamp,
     medical_history_id integer
 );
+
+CREATE TABLE medical_histories (
+    id SERIAL PRIMARY KEY,
+    admitted_at timestamp,
+    patient_id integer,
+    status VARCHAR(255)
+);
+
