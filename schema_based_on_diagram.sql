@@ -38,3 +38,7 @@ CREATE TABLE medical_histories (
 -- Modify medical_history table
 ALTER TABLE medical_histories
 ADD FOREIGN KEY (patient_id) REFERENCES patients(id);
+
+-- Modify treatments table
+ALTER TABLE treatments
+ADD FOREIGN KEY (id) REFERENCES medical_histories(id);
