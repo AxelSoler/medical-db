@@ -59,3 +59,6 @@ CREATE INDEX index_treatment_id ON invoice_items (treatment_id ASC);
 CREATE INDEX index_medical_id ON invoice (medical_history_id ASC);
 CREATE INDEX index_treatments ON treatments (id ASC);
 
+-- rename table invoice to invoices
+ALTER TABLE invoice
+RENAME TO invoices;
