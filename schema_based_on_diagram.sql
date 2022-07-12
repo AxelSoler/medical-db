@@ -36,4 +36,5 @@ CREATE TABLE medical_histories (
 );
 
 -- Modify medical_history table
-ADD FOREIGN KEY (patint_id) REFERENCES patients(id);
+ALTER TABLE medical_histories
+ADD FOREIGN KEY (patient_id) REFERENCES patients(id);
