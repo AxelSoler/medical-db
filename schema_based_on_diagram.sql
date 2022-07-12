@@ -52,7 +52,6 @@ ALTER TABLE invoice
     ADD FOREIGN KEY(medical_history_id) REFERENCES medical_histories(id);
 
 -- add the FK indexes
-
 CREATE INDEX index_medical_histories ON medical_histories (patient_id ASC);
 CREATE INDEX index_invoice_id ON invoice_items (invoice_id ASC);
 CREATE INDEX index_treatment_id ON invoice_items (treatment_id ASC);
@@ -62,3 +61,15 @@ CREATE INDEX index_treatments ON treatments (id ASC);
 -- rename table invoice to invoices
 ALTER TABLE invoice
 RENAME TO invoices;
+
+-- create join table
+CREATE TABLE join_table (
+    medical_histories_id integer,
+    treatments_id integer,
+    FOREIGN KEY(medical_histories_id) REFERENCES medical_histories(id),
+    FOREIGN KEY(treatments_id) REFERENCES treatments(id)
+);
+
+-- add the FK indexes
+CREATE INDEX index_join_history ON join_table (medical_histories_id ASC);
+CREATE INDEX index_join_treatments ON join_table (treatments_id ASC);
